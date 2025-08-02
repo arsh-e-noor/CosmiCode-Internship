@@ -35,6 +35,3 @@
 **Arsh-e-Noor**   
 _DevOps Internship | Week 1_
 
----
-
-> *"Continuous learning and automation are the heartbeats of DevOps."* 🚀
