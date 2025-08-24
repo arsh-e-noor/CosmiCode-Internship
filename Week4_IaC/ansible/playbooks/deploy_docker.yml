@@ -1,0 +1,19 @@
+---
+- name: Deploying Docker Container using Ansible
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Pull nginx image
+      docker_image:
+        name: nginx
+        source: pull
+
+    - name: Run nginx container
+      docker_container:
+        name: nginx_container
+        image: nginx
+        state: started
+        restart_policy: always
+        ports:
+          - "8080:80"
