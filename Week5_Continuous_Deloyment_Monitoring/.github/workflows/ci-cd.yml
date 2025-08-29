@@ -1,0 +1,53 @@
+name: CI-CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install Dependances
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r app/requirements.txt
+
+    - name: Run test
+      run: |
+        pytest app/tests/test_app.py
+
+    - name: Setup Docker
+      uses: docker/setup-buildx-action@v2
+
+    - name: Docker Hub Login
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build Docker Image
+      run: |
+        docker build -t weather-app:latest app/
+
+    - name: Scan Docker image
+      uses: uses: aquasecurity/trivy-action@v0.13.0
+      with:
+        image-ref: weather-app:latest
+
+    - name: Push Docker image
+      run: |
+        docker tag weather-app:latest ${{ secrets.DOCKERHUB_USERNAME }}/weather-app:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/weather-app:latest
+
