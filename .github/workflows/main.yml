@@ -4,11 +4,11 @@ on:
     branches: [main]
     # Ignore changes in Week5 folder
     paths-ignore:
-      - 'Week5_Continuous_Deployment_Monitoring/**'
+      - 'Week5_Continuous_Deloyment_Monitoring/**'
   pull_request:
     branches: [main]
     paths-ignore:
-      - 'Week5_Continuous_Deployment_Monitoring/**'
+      - 'Week5_Continuous_Deloyment_Monitoring/**'
 
 jobs:
   lint:
