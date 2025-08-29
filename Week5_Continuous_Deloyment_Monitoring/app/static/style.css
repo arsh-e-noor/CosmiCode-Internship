@@ -1,0 +1,85 @@
+/* Font and general styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated Gradient Background */
+body {
+    background: linear-gradient(-45deg, #74ebd5, #ACB6E5, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism card */
+.card {
+    width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Button */
+.btn {
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Input */
+input.form-control {
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Weather Icon */
+img {
+    width: 90px;
+    margin: 10px 0;
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Weather-based Themes */
+body.clear { background: linear-gradient(-45deg, #56ccf2, #2f80ed, #74ebd5, #ACB6E5); }
+body.clouds { background: linear-gradient(-45deg, #bdc3c7, #2c3e50); }
+body.rain { background: linear-gradient(-45deg, #3a7bd5, #3a6073); }
+body.snow { background: linear-gradient(-45deg, #83a4d4, #b6fbff); }
+body.thunderstorm { background: linear-gradient(-45deg, #232526, #414345); }
+body.drizzle { background: linear-gradient(-45deg, #89f7fe, #66a6ff); }
+
+/* Overlay for better contrast */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    background: rgba(0,0,0,0.15);
+    z-index: -1;
+}

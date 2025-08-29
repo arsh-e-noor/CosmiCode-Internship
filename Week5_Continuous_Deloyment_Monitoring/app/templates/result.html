@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="{{ weather.main }}">
+    <div class="overlay"></div>
+    <div class="card text-center shadow fade-in">
+        <h2>{{ weather.city }}</h2>
+        <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="icon">
+        <h3>{{ weather.temp }} °C</h3>
+        <p>{{ weather.description | capitalize }}</p>
+        <a href="/" class="btn btn-secondary mt-3">Back</a>
+    </div>
+</body>
+</html>
