@@ -2,8 +2,14 @@ name: CI-CD Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths:
+      - 'Week5_Continuous_Deloyment_Monitoring/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Week5_Continuous_Deloyment_Monitoring/**'
+
 
 jobs:
   build-test-deploy:
@@ -42,7 +48,7 @@ jobs:
         docker build -t weather-app:latest app/
 
     - name: Scan Docker image
-      uses: uses: aquasecurity/trivy-action@v0.13.0
+      uses: aquasecurity/trivy-action@v0.13.0
       with:
         image-ref: weather-app:latest
 
