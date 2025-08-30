@@ -48,7 +48,7 @@ jobs:
         docker build -t weather-app:latest app/
 
     - name: Scan Docker image
-      uses: aquasecurity/trivy-action@v0.13.0
+      uses: aquasecurity/trivy-action@0.33.0
       with:
         image-ref: weather-app:latest
 
