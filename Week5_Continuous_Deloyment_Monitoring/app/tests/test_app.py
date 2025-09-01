@@ -16,4 +16,4 @@ def test_valid_city():
 def test_invalid_city():
     response = client.post("/", data={"city": "InvalidCityName123"})
     assert response.status_code == 200
-    assert b"City not found" in response.data
+    assert b"city not found" in response.data
