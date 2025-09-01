@@ -11,7 +11,6 @@ def test_homepage():
 def test_valid_city():
     response = client.post("/", data={"city": "London"})
     assert response.status_code == 200
-    # Instead of "Weather App" (which is not in your HTML), check for the city name or description
     assert b"London" in response.data or b"temp" in response.data
 
 def test_invalid_city():
