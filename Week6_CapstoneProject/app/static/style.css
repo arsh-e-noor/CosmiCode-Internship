@@ -1,0 +1,20 @@
+:root{
+  --bg:#0b0b0f;
+  --card:#111217;
+  --accent:#00b894;
+  --muted:#9aa0a6;
+}
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.container{width:min(720px,95%);background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:28px;border-radius:12px;box-shadow: 0 8px 30px rgba(2,6,23,0.7)}
+h1{text-align:center;margin:0 0 18px;font-weight:600}
+.input-row{display:flex;gap:8px}
+.input-row input{flex:1;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:#fff;outline:none}
+.input-row button{padding:12px 18px;border-radius:8px;border:none;background:var(--accent);color:#031011;cursor:pointer;font-weight:600}
+#todoList{list-style:none;padding:0;margin-top:18px;display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow:auto}
+.todo-item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:8px;background:var(--card);border:1px solid rgba(255,255,255,0.02)}
+.todo-item.done .title{text-decoration:line-through;opacity:0.6}
+.actions button{margin-left:8px;padding:6px 10px;border-radius:6px;border:none;background:rgba(255,255,255,0.03);color:#fff;cursor:pointer}
+.actions .del{background:transparent;color:#ff7675}
+.footer{margin-top:14px;text-align:center;color:var(--muted)}
+a{color:var(--accent)}
